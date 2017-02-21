@@ -1,3 +1,11 @@
-require 'prime'
+#By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+#What is the 10 001st prime number?
 
-puts Prime.first(10001).last
+require 'prime'
+require 'benchmark'
+
+Benchmark.bm do |x|
+  x.report do
+    puts Prime.first(10001).last
+  end
+end
