@@ -7,6 +7,8 @@ require 'benchmark'
 n = 1000
 Benchmark.bm do |x|
   x.report do
-      
+     a = (1..n/2).to_a.find { |num| (n * (n/2 - num) % (n - num)).zero? }
+     b = n * (n/2 - a) / (n - a)
+     puts "a:#{a}, b:#{b}, c:#{n - b - a}"
   end
 end
