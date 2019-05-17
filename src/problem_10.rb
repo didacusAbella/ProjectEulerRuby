@@ -2,12 +2,11 @@
 #Find the sum of all the primes below two million.
 
 require 'prime'
-require 'benchmark'
+require_relative "./util"
+include Util
 
-Benchmark.bm do |x|
-  x.report do
-    sum = 0
-    Prime.each(2E6) {|prime| sum+=prime}
-    puts sum
-  end
+time("Problem 10 ==>") do
+  sum = 0
+  Prime.each(2E6) {|prime| sum+=prime}
+  puts sum
 end

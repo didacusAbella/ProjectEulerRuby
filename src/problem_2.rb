@@ -3,12 +3,11 @@
 #By considering the terms in the Fibonacci sequence whose values do not exceed four million, 
 #find the sum of the even-valued terms.
 
+require_relative "./util"
+include Util
 
-require 'benchmark'
-Benchmark.bm do |x|
-  x.report do
-    fib = Enumerator.new { |sequence| a=b=1; loop { sequence<<a; a,b=b,a+b} }
-    sum = fib.take_while { |i| i <= 4E6}.select { |i| i.even? }.reduce(0, :+)
-    puts "Problem 2: #{sum}"
-  end
+time("Problem 2 ==>") do
+  fib = Enumerator.new { |sequence| a=b=1; loop { sequence << a; a, b = b, a + b} }
+  sum = fib.take_while { |i| i <= 4E6 }.select { |i| i.even? }.reduce(0, :+)
+  puts " #{sum}"
 end

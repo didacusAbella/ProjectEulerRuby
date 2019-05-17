@@ -2,10 +2,8 @@
 #What is the 10 001st prime number?
 
 require 'prime'
-require 'benchmark'
+require_relative "./util"
 
-Benchmark.bm do |x|
-  x.report do
-    puts Prime.first(10001).last
-  end
+time("Problem 7 ==>") do
+  puts Prime.first(10001).last
 end

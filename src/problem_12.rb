@@ -11,8 +11,9 @@
 #We can see that 28 is the first triangle number to have over five divisors.
 #What is the value of the first triangle number to have over five hundred divisors?
 
-require 'benchmark'
-require 'mathn'
+require "./util"
+require "mathn"
+include Util
 
 class Integer
   def divisor_count
@@ -26,12 +27,10 @@ end
 
 i, triangle_number=1, 1
 
-Benchmark.bm do |x|
-  .x.report do
-    while (triangle_number.divisor_count <= 500)
-      i+=1
-      triangle_number += i
-    end
-    puts triangle_number
+time("Problem 12 ==>") do
+  while (triangle_number.divisor_count <= 500)
+    i+=1
+    triangle_number += i
   end
+  puts triangle_number
 end
